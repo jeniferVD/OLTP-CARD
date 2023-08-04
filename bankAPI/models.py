@@ -10,6 +10,7 @@ class User(models.Model):
 
 
 class Account(models.Model):
+    userID = models.ForeignKey(User, on_delete=models.CASCADE, null=True) 
     accountNumber = models.IntegerField(null=True)
     accountType = models.CharField(max_length=1, null=True)  # D = Debit, C = Credit
     balance = models.FloatField(null=True)
@@ -18,6 +19,7 @@ class Account(models.Model):
 
 
 class Card(models.Model):
+    accountID = models.ForeignKey(Account, on_delete=models.CASCADE, null=True) 
     cardNumber = models.IntegerField(null=True)
     createdAt = models.DateTimeField(auto_now_add=True, null=True)
     holder = models.TextField(null=True)
