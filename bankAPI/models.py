@@ -23,3 +23,8 @@ class Card(models.Model):
     createdAt = models.DateTimeField(auto_now_add=True, null=True)
     holder = models.TextField(null=True)
 
+class Transaction(models.Model):
+    cardID = models.ForeignKey(Card, on_delete=models.CASCADE) 
+    amountSpent = models.IntegerField(null=True)
+    createdAt = models.DateTimeField(auto_now_add=True, null=True)
+
