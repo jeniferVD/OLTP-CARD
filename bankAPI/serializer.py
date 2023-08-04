@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, Account, Card
+from .models import User, Account, Card, Transaction
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -17,4 +17,10 @@ class AccountSerializer(serializers.ModelSerializer):
 class CardSerializer(serializers.ModelSerializer):
     class Meta:
         model = Card
+        fields = "__all__"
+
+
+class TransactionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Transaction
         fields = "__all__"
