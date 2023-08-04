@@ -5,7 +5,6 @@ class User(models.Model):
     lastName = models.TextField(null=True)
     address = models.TextField(null=True)
     phoneNumber = models.TextField(null=True)
-    birthDate = models.TextField(null=True)
     email = models.TextField(null=True)
     genre = models.CharField(max_length=1, null=True)  # F=Female or M=Male
 
