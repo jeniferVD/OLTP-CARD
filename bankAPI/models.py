@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class User(models.Model):
     name = models.TextField(null=True)
     lastName = models.TextField(null=True)
@@ -16,7 +15,7 @@ class Account(models.Model):
     accountType = models.CharField(max_length=1, null=True)  # D = Debit, C = Credit
     balance = models.FloatField(null=True)
     createdAt = models.DateTimeField(auto_now_add=True, null=True)
-    idUser = models.IntegerField("card.User", on_delete=models.CASCADE)
+    idUser = models.IntegerField("bankAPI.User")
 
 
 class Card(models.Model):
@@ -24,5 +23,5 @@ class Card(models.Model):
     createdAt = models.DateTimeField(auto_now_add=True, null=True)
     holder = models.TextField(null=True)
     idAccount = models.IntegerField(
-        "card.Account"
+        "bankAPI.Account"
     )
